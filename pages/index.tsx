@@ -1,7 +1,25 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import {Card} from "@mui/material";
+import {Paper, Container, Box} from "@mui/material";
+import InputBase from '@mui/material/InputBase';
 
+import {flexbox} from '@mui/system';
+
+import {styled} from "@mui/system";
+
+const height = '100%';
+
+const SearchPaper = styled(Paper)`
+  padding: 10px;
+`;
+
+const SearchBox = styled(Box)`
+  height: ${height};
+`;
+
+const SearchContainer = styled(Container)`
+  height: ${height};
+`;
 
 const Home: NextPage = () => {
   return (
@@ -19,9 +37,18 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <Card variant="outlined">
-        Hello World
-      </Card>
+      <SearchContainer maxWidth='sm'>
+        <SearchBox sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+          <SearchPaper elevation={2}>
+            <InputBase
+              sx={{ ml: 1, flex: 1, width: '100%' }}
+              placeholder="What's your property address?"
+              inputProps={{ 'aria-label': 'sWhat\'s your property address' }}
+            />
+          </SearchPaper>
+        </SearchBox>
+      </SearchContainer>
+
 
     </div>
   )
